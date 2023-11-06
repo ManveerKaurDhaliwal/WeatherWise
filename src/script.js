@@ -1,26 +1,5 @@
-let currentDate = new Date();
+
 let currentTemperature;
-// current day
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-let today = days[currentDate.getDay()];
-
-//current hours and minutes
-let time = currentDate.getHours();
-let minutes = currentDate.getMinutes().toString().padStart(2, "0");
-
-//current time
-let dateTimeElement = document.querySelector("#dateTime");
-dateTimeElement.innerHTML = `${today},${time}:${minutes}`;
-
-
 // get temp according to search
 function displaySearch(event) {
   event.preventDefault();
@@ -29,29 +8,39 @@ function displaySearch(event) {
   let city = searchCity.value; 
   let apiKey = "6df0ffa7b3o5c063e6td86aed344ffe7";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-
   axios.get(apiUrl).then(function (response) {
     let cityElement = document.querySelector("#city");
     cityElement.innerHTML = response.data.city;
-
     let currentTemperatureElement = document.querySelector("#temperature");
     currentTemperature = Math.round(response.data.temperature.current);
     currentTemperatureElement.innerHTML=currentTemperature;
-
     let currentFeels = document.querySelector("#feels");
     currentFeels.innerHTML = `Feels like:${Math.round(response.data.temperature.feels_like)}`;
     
     let currentHumidity = document.querySelector("#humidity");
     currentHumidity.innerHTML= `Humidity: ${response.data.temperature.humidity}`;
-
     let currentWind = document.querySelector("#wind");
     currentWind.innerHTML = `Wind   : ${Math.round(response.data.wind.speed)} KMPH`;
-  });
-}
 
+  let timeElement = document.querySelector("#searched-time");
+  let date = new Date(response.data.time * 1000);
+  timeElement.innerHTML = formatDate(date);
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.description;
+    });}
+  function formatDate(date){
+    let minutes = date.getMinutes();
+    let hours = date.getHours();
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday" ,"Friday","Saturday"];
+        let day = days[date.getDay()];  
+        if (minutes<10){
+          minutes = `0${minutes}`;
+        }
+        return `${day}, ${hours}:${minutes}`;
+
+}
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", displaySearch);
-
 let searchInput = document.querySelector("#search-input");
 searchInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
@@ -64,10 +53,8 @@ function displayCelsiusTemp(event) {
   let temp = document.querySelector("#temperature");
   temp.innerHTML = currentTemperature;
 }
-
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsiusTemp);
-
 // temp in fahrenheit
 function displayFahrenheitTemp(event) {
   event.preventDefault();
@@ -75,6 +62,5 @@ function displayFahrenheitTemp(event) {
   let temp = document.querySelector("#temperature");
   temp.innerHTML = Math.round(fahrenheitTemp);
 }
-
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", displayFahrenheitTemp);
