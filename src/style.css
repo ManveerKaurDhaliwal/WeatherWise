@@ -7,8 +7,6 @@ body {
 h2 {
     text-align: start;
     font-size: 60px;
-    ;
-
 }
 
 h3 {
@@ -19,9 +17,6 @@ p {
     text-align: left;
 
 }
-
-
-
 hr {
     padding-top: 60px;
 }
@@ -44,8 +39,27 @@ hr {
     margin-top: 80px;
 }
 
-.weatherImg {
+.weatherDetails {
     font-size: 45px;
+    line-height: 30px;
+}
+
+.weatherImg {
+    font-size: 30px;
+    line-height: 20px;
+}
+
+.weather-icon {
+    width: 88px;
+    height: 88px;
+
+}
+
+.units {
+    position: absolute;
+    margin-top: -10px;
+    font-size: 20px;
+
 }
 
 .weeklyWeather {
@@ -66,5 +80,10 @@ hr {
 
 a {
     text-decoration: none;
-    color: #ffffff;
+    color: white;
+}
+
+a:hover {
+
+    cursor: pointer;
 }
