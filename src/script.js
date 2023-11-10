@@ -22,11 +22,11 @@ function displaySearch(event) {
     let currentWind = document.querySelector("#wind");
     currentWind.innerHTML = `Wind   : ${Math.round(response.data.wind.speed)} KMPH`;
 
-    let timeElement = document.querySelector("#searched-time");
-    let date = new Date(response.data.time * 1000);
-    timeElement.innerHTML = formatDate(date);
-   let descriptionElement = document.querySelector("#description");
-   descriptionElement.innerHTML = response.data.condition.description;
+  let timeElement = document.querySelector("#searched-time");
+  let date = new Date(response.data.time * 1000);
+  timeElement.innerHTML = formatDate(date);
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.description;
 
    let iconElement = document.querySelector("#icon");
    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon" />`;
@@ -67,3 +67,27 @@ function displayFahrenheitTemp(event) {
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", displayFahrenheitTemp);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHTML = '<div class="row mt-4">'; // Start the row here
+
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML +
+      `<div class="col-2 weeklyWeather mx-1">
+         <div class="weather-forecast-date">${day}</div>
+         <div class="weather-forecast-icon"><img src="http://openweathermap.org/img/wn/50d@2x.png" width="42px"/></div>
+         <div class="weather-forecast-temp">
+          <span class="weather-forecast-temp-max">13&deg<br /></span>
+           <span class="weather-forecast-temp-min">10&deg</span>
+         </div>
+      </div>`;
+  });
+
+  forecastHTML = forecastHTML + '</div>'; // End the row here
+
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();

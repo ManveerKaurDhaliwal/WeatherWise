@@ -36,102 +36,56 @@
         <div class="row justify-content-center mt-3">
           <div class="col-lg-8 col-md-8 col-sm-10 city">
             <h2 id="city">Vancouver</h2>
-             <p id="detail">
-               <span id="searched-time"></span>
-              <span id = "description"></span>
-             
-            </p>  
+            <p id="detail">
+              <span id="searched-time"></span>
+              <span id="description"></span>
+            </p>
           </div>
 
           <div class="col-lg-3 col-md-2 col-sm-10">
-            
-              <div id ="icon">
-              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" class="weather-icon"/>
-              </div>
+            <div id="icon">
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+                class="weather-icon"
+              />
+            </div>
 
-              <h3 class="weatherDetails">
+            <h3 class="weatherDetails">
               <span id="temperature">19</span>
               <span class="units">
                 <a href="#" id="celsius">°C</a> |
                 <a href="#" id="fahrenheit">°F</a>
               </span>
             </h3>
-        
+
             <span id="feels">Feels Like: 14</span>
             <span id="humidity">Humidity: 70</span>
             <p id="wind">Wind: 20 KMPH</p>
-     
           </div>
 
           <hr />
         </div>
-
-        <!--Sun weather-->
-        <div class="row mt-4">
-          <div class="col-2 weeklyWeather mx-1">
-            <h6>Sun 04/30</h6>
-            <span class="weatherImg">🌤</span>
-            <p>13&deg<br />10&deg</p>
-          </div>
-
-          <!--Mon Weather-->
-          <div class="col-2 weeklyWeather mx-1">
-            <h6>Mon 05/01</h6>
-            <span class="weatherImg">🌥</span>
-            <p>15&deg<br />10&deg</p>
-          </div>
-
-          <!--Tues Weather-->
-          <div class="col-2 weeklyWeather mx-1">
-            <h6>Tues 05/02</h6>
-            <span class="weatherImg">☀️</span>
-            <p>17&deg<br />11&deg</p>
-          </div>
-
-          <!--Wed Weather-->
-          <div class="col-2 weeklyWeather mx-1">
-            <h6>Wed 05/03</h6>
-            <span class="weatherImg">🌤</span>
-            <p>17&deg<br />11&deg</p>
-          </div>
-
-          <!--Thurs Weather-->
-          <div class="col-2 weeklyWeather mx-1">
-            <h6>Thur 05/04</h6>
-            <span class="weatherImg">🌥</span>
-            <p>17&deg<br />12&deg</p>
-          </div>
-
-          <!--Fri Weather-->
-          <div class="col-2 weeklyWeather mx-1">
-            <h6>Fri 05/05</h6>
-            <span class="weatherImg">🌦</span>
-            <p>13&deg<br />11&deg</p>
-          </div>
-        </div>
+        <div class="weather-forecast" id="forecast"></div>
+        <footer>
+          <p>
+            This project was coded by
+            <a href="https://github.com/ManveerKaurDhaliwal" target="_blank"
+              >Manveer Dhaliwal</a
+            >
+            and is on
+            <a
+              href="https://github.com/ManveerKaurDhaliwal/WeatherWise/"
+              target="_blank"
+            >
+              GitHub</a
+            >
+            and
+            <a href="https://funny-dango-ba8363.netlify.app/" target="_blank"
+              >hosted on Netlify</a
+            >
+          </p>
+        </footer>
       </div>
-     <footer>
-        <p>
-          This project was coded by
-          <a href="https://github.com/ManveerKaurDhaliwal" target="_blank"
-            >Manveer Dhaliwal</a
-          >
-          and is on
-          <a
-            href="https://github.com/ManveerKaurDhaliwal/WeatherWise/"
-            target="_blank"
-          >
-             GitHub</a
-          >
-          and
-          <a
-            href="https://funny-dango-ba8363.netlify.app/"
-            target="_blank"
-            >hosted on Netlify</a
-          >
-        </p>
-      </footer>
-    </div>
     </div>
     <script src="src/script.js"></script>
   </body>
